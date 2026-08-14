@@ -59,17 +59,17 @@ const CleaningPage = () => {
     }
 
     // Validate phone number (basic validation)
-    if (!phone || phone.trim() === "") {
-      setErrors({ phone: "Telefonnummer krävs" });
-      return;
-    }
+    // if (!phone || phone.trim() === "") {
+    //   setErrors({ phone: "Telefonnummer krävs" });
+    //   return;
+    // }
 
     // Basic phone validation (Swedish format)
-    const phoneRegex = /^[\d\s\-\+\(\)]{8,}$/;
-    if (!phoneRegex.test(phone)) {
-      setErrors({ phone: "Ogiltigt telefonnummer" });
-      return;
-    }
+    // const phoneRegex = /^[\d\s\-\+\(\)]{8,}$/;
+    // if (!phoneRegex.test(phone)) {
+    //   setErrors({ phone: "Ogiltigt telefonnummer" });
+    //   return;
+    // }
 
     // All valid - proceed
     setIsLoading(true);
@@ -77,7 +77,7 @@ const CleaningPage = () => {
       setSize(sz);
 
       // Call postPhoneNumber first
-      await postPhoneNumber(phone, process.env.NEXT_PUBLIC_API_KEY!);
+      // await postPhoneNumber(phone, process.env.NEXT_PUBLIC_API_KEY!);
 
       // Then fetch cleaning prices
       await fetchCleaningPrices(process.env.NEXT_PUBLIC_API_KEY!);
@@ -146,7 +146,7 @@ const CleaningPage = () => {
           </div>
 
           {/* Phone Number Input */}
-          <div className="space-y-1 sm:col-span-2">
+          {/* <div className="space-y-1 sm:col-span-2">
             <Input
               ref={phoneRef}
               type="tel"
@@ -167,7 +167,7 @@ const CleaningPage = () => {
             {errors.phone && (
               <p className="text-xs sm:text-sm text-red-500">{errors.phone}</p>
             )}
-          </div>
+          </div> */}
         </div>
 
         {errors.general && (
