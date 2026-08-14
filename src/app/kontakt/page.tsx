@@ -27,6 +27,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useContactStore } from "@/stores/contactStore";
+import { PhoneLink } from "@/components/PhoneLink";
+import {
+  trackBookingComplete,
+  trackPhoneClick,
+  hasTrackedBooking,
+  markBookingTracked,
+} from "@/lib/analytics";
 export default function Page() {
   type KontaktFormValues = z.infer<typeof kontaktSchema>;
   const { isSubmitting, submitContact } = useContactStore();

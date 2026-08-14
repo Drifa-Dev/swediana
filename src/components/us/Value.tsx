@@ -52,7 +52,7 @@ export default function Page() {
           <TextBlock title="Ansvar" className="lg:mt-2">
             medarbetarna har bra villkor och goda förutsättningar att trivas
             med sitt arbete. Detta gör att många medarbetare stannar länge hos
-            Rozen Clean som i sin tur gör att vi har nöjda kunder.
+           Swediana som i sin tur gör att vi har nöjda kunder.
           </TextBlock>
         </div>
 

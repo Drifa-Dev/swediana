@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { CheckCircle2, CalendarDays, Mail, Phone, Info } from "lucide-react";
@@ -8,6 +8,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  trackBookingComplete,
+  trackPhoneClick,
+  hasTrackedBooking,
+  markBookingTracked,
+} from "@/lib/analytics";
 
 function formatDate(input?: string | null) {
   if (!input) return "–";
@@ -32,6 +38,17 @@ function ThanksContent() {
   const name = params.get("name") || "Kund";
   const email = "info@swediana.se";
   const phone = "+46 10 808 56 25";
+  const rawValue = params.get("value");
+  const value = rawValue ? Number(rawValue) : undefined;
+
+  // Fire the primary Google Ads conversion once per booking ID.
+  // sessionStorage prevents double firing on refresh or repeated button clicks.
+  useEffect(() => {
+    if (order && order !== "–" && !hasTrackedBooking(order)) {
+      trackBookingComplete(service, order, value);
+      markBookingTracked(order);
+    }
+  }, [order, service, value]);
 
   return (
     <div className="min-h-screen w-full bg-background pt-16">
@@ -143,7 +160,10 @@ function ThanksContent() {
                   <Button
                     variant="secondary"
                     className="rounded-full"
-                    onClick={() => (window.location.href = `tel:${phone}`)}
+                    onClick={() => {
+                      trackPhoneClick("thanks");
+                      window.location.href = `tel:${phone.replace(/\s/g, "")}`;
+                    }}
                   >
                     <Phone className="h-4 w-4 mr-2" /> Ring oss
                   </Button>

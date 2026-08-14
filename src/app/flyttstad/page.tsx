@@ -11,6 +11,7 @@ import CleaningSummaryCard from "@/components/CleaningSummaryCard";
 import { useCleaningStore } from "@/stores/cleaningStore";
 import { initialCleaningSchema } from "../schema/schema";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { trackBookingStart } from "@/lib/analytics";
 
 const CleaningPage = () => {
   const {
@@ -81,6 +82,7 @@ const CleaningPage = () => {
       // Then fetch cleaning prices
       await fetchCleaningPrices(process.env.NEXT_PUBLIC_API_KEY!);
       setVisible(true);
+      trackBookingStart("Flyttstäd");
     } catch (error) {
       console.error("Failed to process request:", error);
       setErrors({ general: "Kunde inte hämta priser. Försök igen." });
@@ -107,7 +109,7 @@ const CleaningPage = () => {
               ref={sizeRef}
               defaultValue={size || ""}
               type="number"
-              placeholder="Storlek (m³)"
+              placeholder="Storlek (m²)"
               className={`w-full h-10 sm:h-11 text-sm sm:text-base ${
                 errors.size ? "border-red-500" : ""
               }`}

@@ -25,6 +25,7 @@ export default function BookingDetailsBygg() {
     (s) => s.postByggCleaningBooking
   );
   const resetCleaning = useCleaningStore((s) => s.resetCleaning);
+  const grandTotal = useCleaningStore((s) => s.priceDetails.totals.grandTotal);
 
   const [cleanType, setCleanType] = React.useState<"typical" | "inspection">(
     "typical"
@@ -230,6 +231,7 @@ export default function BookingDetailsBygg() {
                 name: String(f.name || ""),
                 email: String(f.email || ""),
                 phone: String(f.phone || ""),
+                value: String(grandTotal || 0),
               }).toString();
 
               form.reset();

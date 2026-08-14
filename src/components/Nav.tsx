@@ -34,6 +34,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { PhoneLink } from "@/components/PhoneLink";
 
 // Service items with icons
 const services = [
@@ -250,12 +251,12 @@ const MobileNav = () => {
             </SheetClose>
             
             <div className="mt-4 text-center">
-              <a 
-                href="tel:+46108085625" 
+              <PhoneLink
+                location="nav_mobile"
                 className="text-teal-300 hover:text-teal-200 font-medium text-sm transition-colors"
               >
                 Ring oss: 10-808 5625
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </nav>
@@ -427,10 +428,10 @@ const Nav = () => {
               className="text-white hover:bg-white/10 font-medium"
               asChild
             >
-              <a href="tel:+46108085625">
+              <PhoneLink location="nav_desktop">
                 <Phone className="mr-2 h-4 w-4" />
                 Ring Oss
-              </a>
+              </PhoneLink>
             </Button>
             <Button
               className="

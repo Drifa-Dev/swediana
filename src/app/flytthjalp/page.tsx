@@ -10,6 +10,7 @@ import AddressSection from "@/components/AddressSection";
 import { useBookingStore } from "@/stores/bookingStore";
 import { initialBookingSchema } from "../schema/schema";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { trackBookingStart } from "@/lib/analytics";
 
 const Page = () => {
   const {
@@ -86,6 +87,7 @@ const Page = () => {
 
       // Then fetch prices
       await fetchPrices(process.env.NEXT_PUBLIC_API_KEY!);
+      trackBookingStart("Flytthjälp");
     } catch (error) {
       console.error("Failed to process request:", error);
       setErrors({ general: "Kunde inte hämta priser. Försök igen." });
@@ -115,7 +117,7 @@ const Page = () => {
               ref={sizeRef}
               defaultValue={sizeValue || ""}
               type="number"
-              placeholder="Storlek (m³)"
+              placeholder="Storlek (m²)"
               className={`w-full h-10 sm:h-11 text-sm sm:text-base ${
                 errors.size ? "border-red-500" : ""
               }`}

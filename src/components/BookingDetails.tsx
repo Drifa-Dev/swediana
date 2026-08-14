@@ -31,6 +31,7 @@ export default function BookingDetails() {
 
   const postBooking = useBookingStore((s) => s.postBooking);
   const resetBooking = useBookingStore((s) => s.resetBooking);
+  const grandTotal = useBookingStore((s) => s.priceDetails.totals.grandTotal);
 
   const [moveType, setMoveType] = React.useState<"typical" | "inspection">(
     "typical"
@@ -246,6 +247,7 @@ export default function BookingDetails() {
                 email: String(f.email || ""),
                 phone: String(f.phone || ""),
                 addressStreet: String(f.addressStreet || ""),
+                value: String(grandTotal || 0),
               }).toString();
 
               form.reset();

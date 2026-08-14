@@ -28,9 +28,18 @@ export default function Page() {
         ></div>
 
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
-          <h1 className="text-white font-bold drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight max-w-7xl mx-auto">
-            Flyttstädning
-          </h1>
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-white font-bold drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+              Flyttstädning
+            </h1>
+            <Link
+              href="/flyttstad"
+              className="group mt-6 sm:mt-8 inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#28ebde] text-gray-900 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base lg:text-lg hover:gap-3 sm:hover:gap-5 hover:px-8 sm:hover:px-10 lg:hover:px-12 transition-all duration-300 shadow-lg shadow-[#28ebde]/50 hover:shadow-xl hover:shadow-[#28ebde]/70 hover:scale-105 active:scale-95 touch-manipulation w-full sm:w-auto max-w-md sm:max-w-none"
+            >
+              <span className="whitespace-nowrap">Boka flyttstädning</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -52,13 +61,7 @@ export default function Page() {
             professionell flyttstädning som uppfyller alla krav från mäklare och
             nya ägare. Lita på oss för ett prickfritt resultat.
           </p>
-          <Link
-            href="/flyttstad"
-            className="group mt-6 sm:mt-8 inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#28ebde] text-gray-900 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base lg:text-lg hover:gap-3 sm:hover:gap-5 hover:px-8 sm:hover:px-10 lg:hover:px-12 transition-all duration-300 shadow-lg shadow-[#28ebde]/50 hover:shadow-xl hover:shadow-[#28ebde]/70 hover:scale-105 active:scale-95 touch-manipulation w-full sm:w-auto max-w-md sm:max-w-none"
-          >
-            <span className="whitespace-nowrap">Boka flyttstädning</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
-          </Link>
+          
         </div>
       </section>
 
@@ -71,7 +74,7 @@ export default function Page() {
           Att flytta är stressigt nog. Låt oss ta hand om det sista, men viktigaste, steget: Flyttstädningen. När du väljer en professionell partner säkerställer du att städningen blir godkänd direkt, undviker dyra tvister och får mer tid att fokusera på ditt nya hem.
         </p>
         <p className="text-sm sm:text-base lg:text-lg leading-relaxed mb-8 sm:mb-10">
-          Vi på Swediana AB erbjuder en omfattande och garanti-godkänd flyttstädningstjänst för både lägenheter och villor över hela [Ange ert geografiska område].
+          Vi på Swediana AB erbjuder en omfattande och garanti-godkänd flyttstädningstjänst för både lägenheter och villor över hela Uppsala och Stockholm.
         </p>
 
         <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">
